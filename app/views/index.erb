@@ -10,8 +10,16 @@
     <input id="pass" name="password" type='password'>
     <input type="submit" value="Get in the ring, ya jabroni">
   </form>
+
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <p><%= "#{error}" %></p>
+    <% end %>
+  <% end %>
+
 </section>
 
 <section>
   <p>New? Register <a href='/users/new'>by clicking here</a>.</p>
 </section>
+
