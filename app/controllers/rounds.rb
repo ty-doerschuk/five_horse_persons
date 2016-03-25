@@ -6,6 +6,7 @@ get '/rounds/:round_id/guesses/new' do
 end
 
 post '/rounds/:round_id/guesses' do
+  puts params
   @round = Round.find(params[:round_id])
   @guess = @round.guesses.new(params[:guess])
   # check if the user's answer is true
