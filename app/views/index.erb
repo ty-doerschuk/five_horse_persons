@@ -3,13 +3,15 @@
 </header>
 
 <% unless logged_in? %>
-<section>
+<section class="login">
   <form method='post' action='/users/login'>
-    <label for="user">Username:</label>
-    <input id="user" name="username" type='text'>
-    <label for="pass">Password</label>
-    <input id="pass" name="password" type='password'>
-    <input type="submit" value="Get in the ring, ya jabroni">
+    <ul>
+      <li><label for="user">Username:</label></li>
+      <li><input id="user" name="username" type='text'></li>
+      <li><label for="pass">Password:</label></li>
+      <li><input id="pass" name="password" type='password'></li>
+      <li><input type="submit" value="Get in the ring, ya jabroni"></li>
+    </ul>
   </form>
 <% end %>
 
