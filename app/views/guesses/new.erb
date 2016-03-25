@@ -1,0 +1,11 @@
+<article class="card">
+  <% current_card = @round.cards.first %>
+  <p>Question:</p>
+  <span class="question"><%= current_card.question %></span>
+</article>
+
+<form method="post" action="/rounds/<%= @round.id %>/guesses">
+  <label>Your answer is:</label>
+  <input type="text" name="user_answer">
+  <input type="submit" value="Submit">
+</form>
