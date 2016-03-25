@@ -6,13 +6,11 @@ get '/rounds/:round_id/guesses/new' do
 end
 
 post '/rounds/:round_id/guesses' do
+  # p params
   @round = Round.find(params[:round_id])
   @guess = @round.guesses.new(params[:guess])
-  # check if the user's answer is true
-  # SAMPLE CODE
-  # if @guess.is_true?(params[:user_answer])
-  # => @guess(:true_or_false) = true
-  # end
+  @guess.answer_checker(params[:user_answer])
+  # puts @guess.true_or_false
   if @guess.save
     redirect "/rounds/#{@round.id}/guesses"
   else
