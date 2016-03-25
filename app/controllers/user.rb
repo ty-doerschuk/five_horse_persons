@@ -4,7 +4,7 @@ get '/users/new' do
   erb :new_user
 end
 
-post '/users/new' do
+post '/users' do
   @user = User.create(username: params[:username])
   @user.password = params[:password]
   if @user.save
@@ -34,4 +34,9 @@ get '/users/:id' do
     @user = User.find(session[:id])
     erb :'users/user_page'
   end
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end

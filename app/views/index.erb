@@ -2,6 +2,7 @@
   <h1>CAN YOU SMELL WHAT THESE FLASHCARDS ARE COOKING?</h1>
 </header>
 
+<% unless logged_in? %>
 <section>
   <form method='post' action='/users/login'>
     <label for="user">Username:</label>
@@ -10,6 +11,7 @@
     <input id="pass" name="password" type='password'>
     <input type="submit" value="Get in the ring, ya jabroni">
   </form>
+<% end %>
 
   <% if @errors %>
     <% @errors.each do |error| %>
@@ -19,7 +21,14 @@
 
 </section>
 
+<% if logged_in? %>
+
+  <h2>WELCOME <%= current_user.username %> </h2>
+  <p>You can <a href="/users/<%= current_user.id %>">jump into the ring</a> or <a href="/logout">log out like a chump</a>.
+<% end %>
+
+<% unless logged_in? %>
 <section>
   <p>New? Register <a href='/users/new'>by clicking here</a>.</p>
 </section>
-
+<% end %>
