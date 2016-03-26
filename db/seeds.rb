@@ -19,3 +19,18 @@ user = User.create!(username: "jabroni", hashed_password: "smackdown")
 round = Round.create!(user_id: user.id, deck_id: deck.id, score: nil)
 
 guess = Guess.create!(round_id: round.id, card_id: card1.id, true_or_false: false)
+
+#########################################################
+
+deck2 = Deck.create!(name: "Famous Phrases")
+
+card1 = Card.create!(question: "It doesn't matter what you think!",           answer: "The Rock",
+                     deck_id: deck.id)
+
+card2 = Card.create(question: "Rest in peace!",
+                    answer: "Undertaker",
+                    deck_id: deck.id)
+
+card3 = Card.create(question: "The best there is, there best there was, the best there ever will be!",
+                    answer: "Bret Hart",
+                    deck_id: deck.id)
