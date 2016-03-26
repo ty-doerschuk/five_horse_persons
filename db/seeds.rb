@@ -1,5 +1,11 @@
 require 'faker'
 
+# Deck.destroy_all
+# Card.destroy_all
+# User.destroy_all
+# Round.destroy_all
+# Guess.destroy_all
+
 deck = Deck.create!(name: "Signature Moves")
 
 card1 = Card.create!(question:"What is Bret Hart's signature move?",
@@ -16,7 +22,7 @@ card3 = Card.create!(question:"What is Shawn Michael's signature move?",
 
 user = User.create!(username: "jabroni", hashed_password: "smackdown")
 
-round = Round.create!(user_id: user.id, deck_id: deck.id, score: nil)
+round = Round.create!(user_id: user.id, deck_id: deck.id)
 
 guess = Guess.create!(round_id: round.id, card_id: card1.id, true_or_false: false)
 
