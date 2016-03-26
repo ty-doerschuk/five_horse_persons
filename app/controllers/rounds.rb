@@ -1,11 +1,18 @@
+
+
 get '/rounds/:round_id/guesses/new' do
   @round = Round.find(params[:round_id])
-  @card = @round.get_next_card
-  puts @card.question
-  puts @card.answer
-  # based on name of helper method that finds current user from sessions and assigns it to an instance variable
-  # @user = current_user
-  erb :'guesses/new'
+  if @round.no_more_cards?
+    # redirect to whatever page
+    puts "================================================="
+    puts "You finished"
+    puts "================================================="
+    # change redirect to game over page instead of index
+    redirect "/rounds/#{@round.id}"
+  else
+    @card = @round.get_next_card
+    erb :'guesses/new'
+  end
 end
 
 post '/rounds/:round_id/guesses' do
