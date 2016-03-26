@@ -1,5 +1,9 @@
 <header>
-<h1> WELCOME <%= @user.username %>! WOO!</h1>
+<% if current_user.id == @user.id %>
+  <h1> WELCOME <%= @user.username %>! WOO!</h1>
+<% else %>
+  <h1>You are viewing <%= @user.username %>'s profile</h1>
+<% end %>
 </header>
 
 <section>
@@ -10,7 +14,7 @@
     <li>Belts Held:</li>
   </ul>
 </section>
-
+<% if current_user.id == @user.id %>
 <section>
   <form method="get" action='/rounds/new'>
     <select name="deck_id">
@@ -23,5 +27,5 @@
     <input type="submit" value="LET'S GET READY TO RUMBLE">
   </form>
 </section>
-
+<% end %>
 <p><a href='/'>Home Page</a></p>

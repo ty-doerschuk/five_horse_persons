@@ -1,3 +1,9 @@
+before '/rounds*' do
+  unless logged_in?
+    redirect '/'
+  end
+end
+
 get '/rounds/new' do
   puts "================================================="
   puts params
