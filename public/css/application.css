@@ -31,6 +31,8 @@ a:hover {
   padding: 10px;
   background-color: #000;
   opacity: 0.8;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .display ul {
@@ -91,8 +93,13 @@ a:hover {
   font-weight: bold;
 }
 
-footer img {
-
+.card {
+  width: 300px;
+  color: #fff;
+  padding: 10px;
+  background-color: #000;
+  opacity: 0.8;
+  text-align: center;
 }
 
 #correct-guess {
@@ -103,4 +110,7 @@ footer img {
   color: red;
 }
 
+.result {
+  font-weight: 700;
+}
 
