@@ -23,9 +23,11 @@ class Round < ActiveRecord::Base
   end
 
   def calc_points
-    total_score = 0
-    correct_answers = self.guesses.where(true_or_false: true)
-    p correct_answers.count
+    guess_penalty = self.guesses.count
+    initial_score = self.cards.count * 2
+
+    final_score = initial_score - guess_penalty
+
   end
 
 end
