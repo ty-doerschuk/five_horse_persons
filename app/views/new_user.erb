@@ -17,7 +17,7 @@
 <section>
   <% if @errors %>
     <% @errors.each do |error| %>
-    <p><%= "#{error}" %></p>
+    <p span class="error"><%= "#{error}" %></span></p>
     <% end %>
   <% end %>
 </section>

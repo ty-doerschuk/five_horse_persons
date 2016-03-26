@@ -27,4 +27,10 @@ post '/rounds/:round_id/guesses' do
   else
     erb :'guesses/new'
   end
+
+get '/rounds/:id' do
+  @round = Round.find(params[:id])
+  erb :'rounds/show'
+end
+
 end

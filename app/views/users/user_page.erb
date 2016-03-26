@@ -1,3 +1,25 @@
+<header>
 <h1> WELCOME <%= @user.username %>! WOO!</h1>
+</header>
 
-<a href='/'>Home Page</a>
+<section>
+  <h2>Your Statistics</h2>
+  <ul>
+    <li>Wins:</li>
+    <li>Losses:</li>
+    <li>Belts Held:</li>
+  </ul>
+</section>
+
+<section>
+  <form method="get" action='rounds/new'>
+    <select name="deck">
+      <% @list_of_decks.each do |deck| %>
+        <option value="<%= deck.name %>"><%= deck.name %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="LET'S GET READY TO RUMBLE">
+  </form>
+</section>
+
+<p><a href='/'>Home Page</a></p>
