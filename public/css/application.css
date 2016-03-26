@@ -17,6 +17,7 @@ body {
 /*  background-image: url("/images/the_rock.png");*/
 }
 
+
 a {
   color: #fff;
 }
@@ -28,11 +29,11 @@ a:hover {
 .display {
   width: 300px;
   color: #fff;
-  text-align: center;
+  padding: 10px;
   background-color: #000;
   opacity: 0.8;
-  padding: 10px;
-  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .display ul {
@@ -45,10 +46,12 @@ a:hover {
   opacity: 0.8;
   width: 300px;
   padding: 10px;
+  margin-bottom: 5px;
 }
 
 .login label {
   color: #fff;
+  width: 400px;
 }
 
 .login input[type=text] {
@@ -93,4 +96,12 @@ a:hover {
 
 footer img {
 
+}
+
+#correct-guess {
+  color: green;
+}
+
+#wrong-guess {
+  color: red;
 }
