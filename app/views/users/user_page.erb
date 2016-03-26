@@ -8,8 +8,8 @@
 
 <section>
   <h2>Your Statistics</h2>
-  <ul>
-    <li>Wins:</li>
+  <ul style ="list-style-type:none">
+    <li>Points: <%= @user.rounds.first.guesses.calc_points %></li>
     <li>Losses:</li>
     <li>Belts Held:</li>
   </ul>
@@ -28,4 +28,5 @@
   </form>
 </section>
 <% end %>
+
 <p><a href='/'>Home Page</a></p>
