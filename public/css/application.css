@@ -37,7 +37,10 @@ header {
   padding: 5px;
 }
 
-
+.error {
+  color: red;
+  font-weight: bold;
+}
 footer img {
 
 }
