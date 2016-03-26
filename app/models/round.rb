@@ -8,9 +8,9 @@ class Round < ActiveRecord::Base
   def cards_to_play
     # remove_card = self.guesses.find_by(true_or_false: true)
     correct_answers = self.guesses.where(true_or_false: true)
-    correctly_answered_cards = correct_answers.map{ |guess| guess.card }
+    @correctly_answered_cards = correct_answers.map{ |guess| guess.card }
     all_cards = self.cards
-    all_cards - correctly_answered_cards
+    all_cards - @correctly_answered_cards
   end
 
   # return true if no more cards to play
@@ -20,6 +20,10 @@ class Round < ActiveRecord::Base
 
   def get_next_card
     cards_to_play.sample
+  end
+
+  def calc_points
+
   end
 
 end
