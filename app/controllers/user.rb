@@ -31,6 +31,7 @@ get '/users/:id' do
     redirect '/'
   else
     @user = User.find(session[:id])
+    @list_of_decks = Deck.all
     erb :'users/user_page'
   end
 end
