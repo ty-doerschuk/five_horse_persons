@@ -1,9 +1,15 @@
-<h1>The round is over!</h1>
+<header>
+<h1>THE ROUND IS OVER!</h1>
+</header>
 
-<h2>Here are your stats:</h2>
+<section class="display">
+  <h2>Here are your stats:</h2>
+  <p>It took you:</p>
+  <p span class='result'><%= @round.guesses.count %> guesses</p>
+  <p>to get through</p>
+  <p span class='result'><%= @round.cards.count %> cards!</p>
+</section>
 
-
-
-<p>It took your <%= @round.guesses.count %> guesses to get through <%= @round.cards.count %></p>
-
-<a href="/users/user_page">Back to user page</a>
+<section class="display">
+  <p><a href="/users/user_page">Go Back To Your User Page</a></p>
+</section>

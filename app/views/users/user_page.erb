@@ -1,31 +1,52 @@
 <header>
 <% if current_user.id == @user.id %>
-  <h1> WELCOME <%= @user.username %>! WOO!</h1>
+  <h1> FINALLY, <%= @user.username.titleize %> HAS COME BACK TO...</h1>
 <% else %>
-  <h1>You are viewing <%= @user.username %>'s profile</h1>
+  <h1>YOU ARE VIEWING <%= @user.username.titleize %>'S PROFILE</h1>
 <% end %>
 </header>
 
+<<<<<<< HEAD
 <section>
   <h2>Your Statistics</h2>
   <ul style ="list-style-type:none">
     <li>Points: <%= @user.rounds.first.calc_points %></li>
+=======
+<section class="display">
+  <h2><%= @user.username.titleize %>'s Statistics</h2>
+  <ul>
+    <li>Points: </li>
+    <li>Losses:</li>
+>>>>>>> master
     <li>Belts Held:</li>
   </ul>
 </section>
+
 <% if current_user.id == @user.id %>
-<section>
+<section class="login">
   <form method="get" action='/rounds/new'>
-    <select name="deck_id">
+    <ul>
+      <li><label for="deck">Select Your Deck:</label></li>
+      <li><select id="deck" name="deck_id">
       <% @list_of_decks.each do |deck| %>
         <option value="<%= deck.id %>"><%= deck.name %></option>
       <% end %>
-    </select>
+    </select></li>
 
     <input type="hidden" name="user_id" value="<%= current_user.id  %>">
-    <input type="submit" value="LET'S GET READY TO RUMBLE">
+    <li><input type="submit" value="LET'S GET READY TO RUMBLE"></li>
   </form>
 </section>
+
+<% else %>
+
+<section class="display">
+  <p><a href="/users/<%= current_user.id %>">Return</a> to your profile.<p>
+</section>
+
 <% end %>
 
-<p><a href='/'>Home Page</a></p>
+<section class="display">
+  <p><a href='/'>Go Back</a> to the Home Page</p>
+</section>
+

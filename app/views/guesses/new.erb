@@ -1,21 +1,28 @@
+<header>
 <% if @last_guess %>
   <% answer = @last_guess.card.answer %>
   <% if @last_guess.true_or_false == true %>
-    <h2 id='correct-guess'>Correct! Layeth the smackdown!</h2>
+    <h1 id='correct-guess'>CORRECT! LAYETH THE SMACKDOWN!</h1>
   <% else %>
-    <h2 id='wrong-guess'>Wrong answer! Take that guess, shine it up real nice,<br>turn that sum-bitch sideways, and stick it straight up your candy ass!<br><%= answer %> is the right answer.</h2>
+    <h1 id='wrong-guess'>WRONG ANSWER! TAKE THAT GUESS, SHINE IT UP REAL NICE,
+    <br>TURN THAT SUM-BITCH SIDEWAYS, AND STICK IT STRAIGHT UP YOUR CANDY-ASS!<br><%= answer %> IS THE RIGHT ANSWER.</h1>
   <% end %>
+<% else %>
+<h1><%= current_user.username.titleize %> HAS ENTERED THE RING!</h1>
 <% end %>
-
+</header>
 
 <article class="card">
   <p>Question:</p>
   <span class="question"><%= @card.question %></span>
 </article>
 
+<section class="login">
 <form method="post" action="/rounds/<%= @round.id %>/guesses">
-  <label>Your answer is:</label>
-  <input type="text" name="user_answer">
-  <input type="hidden" name="guess[card_id]" value="<%= @card.id %>">
-  <input type="submit" value="Submit">
+  <ul>
+    <li><label>Your answer is:</label></li>
+    <li><input type="text" name="user_answer"></li>
+    <input type="hidden" name="guess[card_id]" value="<%= @card.id %>">
+    <li><input type="submit" value="And That's The Bottom Line"></li>
 </form>
+</section>

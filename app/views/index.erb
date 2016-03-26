@@ -25,12 +25,18 @@
 
 <% if logged_in? %>
 
-  <h2>WELCOME <%= current_user.username %> </h2>
-  <p>You can <a href="/users/<%= current_user.id %>">jump into the ring</a> or <a href="/logout">log out like a chump</a>.
+<section class="display">
+  <h2>Welcome back, <%= current_user.username.titleize %> </h2>
+  <ul>
+    <li>You can <a href="/users/<%= current_user.id %>">jump into the ring</a> or</li>
+    <li>you can <a href="/logout">log out like a chump</a>.</li>
+  </ul>
+</section>
+
 <% end %>
 
 <% unless logged_in? %>
-<section>
+<section class="display">
   <p>New? Register <a href='/users/new'>by clicking here</a>.</p>
 </section>
 <% end %>

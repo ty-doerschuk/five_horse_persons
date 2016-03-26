@@ -22,12 +22,11 @@ class Round < ActiveRecord::Base
     cards_to_play.sample
   end
 
-  def calc_points
-    guess_penalty = self.guesses.count
-    initial_score = self.cards.count * 2
 
-    final_score = initial_score - guess_penalty
-
+  def calc_points_for_round
+    initial_points = (self.guesses.where(true_or_false: true)).count * 2
+    guess_penalty = (self.guesses.where(true_or_false: false)).count
+    total_round_score = initial_points - guess_penalty
   end
 
 end
