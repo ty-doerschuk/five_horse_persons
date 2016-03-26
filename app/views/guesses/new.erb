@@ -1,12 +1,11 @@
 <article class="card">
-  <% current_card = @round.cards.first %>
   <p>Question:</p>
-  <span class="question"><%= current_card.question %></span>
+  <span class="question"><%= @card.question %></span>
 </article>
 
 <form method="post" action="/rounds/<%= @round.id %>/guesses">
   <label>Your answer is:</label>
   <input type="text" name="user_answer">
-  <input type="hidden" name="guess[card_id]" value="<%= current_card.id %>">
+  <input type="hidden" name="guess[card_id]" value="<%= @card.id %>">
   <input type="submit" value="Submit">
 </form>

@@ -17,8 +17,7 @@ end
 
 post '/users/login' do
   @user = User.find_by(username: params[:username])
-  p params
-  if @user.authenticate(params[:password])
+  if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
       redirect "/users/#{@user.id}"
   else
@@ -32,6 +31,7 @@ get '/users/:id' do
     redirect '/'
   else
     @user = User.find(session[:id])
+    @list_of_decks = Deck.all
     erb :'users/user_page'
   end
 end
