@@ -1,4 +1,10 @@
-
+get '/rounds/new' do
+  puts "================================================="
+  puts params
+  round = Round.create!(user_id: params[:user_id],
+                        deck_id: params[:deck_id])
+  redirect "/rounds/#{round.id}/guesses/new"
+end
 
 get '/rounds/:round_id/guesses/new' do
   @round = Round.find(params[:round_id])
@@ -27,10 +33,10 @@ post '/rounds/:round_id/guesses' do
   else
     erb :'guesses/new'
   end
+end
 
 get '/rounds/:id' do
   @round = Round.find(params[:id])
   erb :'rounds/show'
 end
 
-end

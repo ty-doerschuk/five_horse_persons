@@ -4,6 +4,6 @@
 
 
 
-<p>It took your <%= guesses.round.count %> guesses to get through (this many cards)</p>
+<p>It took your <%= @round.guesses.count %> guesses to get through <%= @round.cards.count %></p>
 
 <a href="/users/user_page">Back to user page</a>
