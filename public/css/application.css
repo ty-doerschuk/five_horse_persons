@@ -6,11 +6,20 @@ body {
 
 header {
   text-align: center;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+header h1 {
+  opacity: 1.0;
+  color: #fff;
 }
 
 .login {
+  background-color: #000;
+  opacity: 0.5;
   width: 400px;
-
+  color: #fff;
 }
 
 .login input[type=text] {

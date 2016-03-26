@@ -20,8 +20,21 @@
 <body>
   <%= yield %>
 <footer>
-<img src="/images/the_rock.png">
+
 </footer>
+<!--include jquery & backstretch-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+<script type="text/javascript">
+$(function(){
+     $(window).resize(function(){
+         if($(this).width() >= 767){
+             $.backstretch("images/the_rock_bg.png", {speed: 150});
+         }
+      })
+      .resize();//trigger resize on page load
+});
+</script>
 
 
 </body>
