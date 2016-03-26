@@ -7,7 +7,7 @@ body {
 header {
   text-align: center;
   background-color: #000;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 header h1 {
@@ -17,24 +17,30 @@ header h1 {
 
 .login {
   background-color: #000;
-  opacity: 0.5;
+  opacity: 0.8;
   width: 400px;
+}
+
+.login label {
   color: #fff;
 }
 
 .login input[type=text] {
   width: 75%;
   box-sizing: border-box;
+  color: #000;
 }
 
 .login input[type=password] {
   width: 75%;
   box-sizing: border-box;
+  color: 000#;
 }
 
 .login input[type=submit] {
   width: 75%;
   box-sizing: border-box;
+  color: #000;
 }
 
 .login ul {
@@ -50,6 +56,7 @@ header h1 {
   color: red;
   font-weight: bold;
 }
+
 footer img {
 
 }
