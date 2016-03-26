@@ -19,7 +19,7 @@ class Round < ActiveRecord::Base
   end
 
   def get_next_card
-    cards_to_play.first
+    cards_to_play.sample
   end
 
 end

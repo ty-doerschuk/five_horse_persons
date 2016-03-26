@@ -12,12 +12,14 @@
 </section>
 
 <section>
-  <form method="get" action='rounds/new'>
-    <select name="deck">
+  <form method="get" action='/rounds/new'>
+    <select name="deck_id">
       <% @list_of_decks.each do |deck| %>
-        <option value="<%= deck.name %>"><%= deck.name %></option>
+        <option value="<%= deck.id %>"><%= deck.name %></option>
       <% end %>
     </select>
+
+    <input type="hidden" name="user_id" value="<%= current_user.id  %>">
     <input type="submit" value="LET'S GET READY TO RUMBLE">
   </form>
 </section>
