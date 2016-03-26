@@ -1,24 +1,50 @@
-body {
-  margin: 0 20px;
-/*  background-image: url("/images/the_rock.png");*/
-}
-
-
 header {
   text-align: center;
   background-color: #000;
   opacity: 0.8;
+  font-family: Archivo Black;
 }
 
 header h1 {
   opacity: 1.0;
   color: #fff;
+  font-size: 36px;
+}
+
+body {
+  font-family: Roboto;
+  margin: 0 20px;
+/*  background-image: url("/images/the_rock.png");*/
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #aaa;
+}
+
+.display {
+  width: 300px;
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  opacity: 0.8;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.display ul {
+  list-style: none;
+  text-align: left;
 }
 
 .login {
   background-color: #000;
   opacity: 0.8;
-  width: 400px;
+  width: 300px;
+  padding: 10px;
 }
 
 .login label {
@@ -26,21 +52,29 @@ header h1 {
 }
 
 .login input[type=text] {
-  width: 75%;
+  width: 100%;
   box-sizing: border-box;
   color: #000;
 }
 
 .login input[type=password] {
-  width: 75%;
+  width: 100%;
   box-sizing: border-box;
   color: 000#;
 }
 
 .login input[type=submit] {
-  width: 75%;
+  width: 100%;
   box-sizing: border-box;
   color: #000;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.login select {
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #000;
 }
 
 .login ul {
