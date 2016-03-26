@@ -12,7 +12,7 @@
 </section>
 
 <section>
-  <form method="get">
+  <form method="get" action='rounds/:round_id/guesses/new'>
     <select name="deck">
       <% @list_of_decks.each do |deck| %>
         <option value="<%= deck.name %>"><%= deck.name %></option>
