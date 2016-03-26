@@ -1,3 +1,21 @@
+<% if @last_guess %>
+
+  <% answer = @last_guess.card.answer %>
+
+  <% if @last_guess.true_or_false == true %>
+
+    <h2 class='correct-guess'>Correct! Layeth the smackdown!</h2>
+
+  <% else %>
+
+    <h2 class='wrong-guess'>Wrong answer! Take that guess, shine it up real nice,<br>turn that sum-bitch sideways, and stick it straight up your candy ass!<br><%= answer %> is the right answer.</h2>
+
+  <% end %>
+
+
+<% end %>
+
+
 <article class="card">
   <p>Question:</p>
   <span class="question"><%= @card.question %></span>
