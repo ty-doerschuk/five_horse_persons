@@ -27,10 +27,11 @@ post '/users/login' do
 end
 
 get '/users/:id' do
-  if session[:id] == nil
+  unless logged_in?
     redirect '/'
   else
-    @user = User.find(session[:id])
+    @user = User.find_by(id: params[:id])
+    redirect "/users/#{current_user.id}" unless @user
     @list_of_decks = Deck.all
     erb :'users/user_page'
   end
