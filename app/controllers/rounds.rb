@@ -12,8 +12,8 @@ end
 
 get '/rounds/:round_id/guesses/new' do
   @round = Round.find(params[:round_id])
+  @last_guess = @round.guesses.last
   if @round.no_more_cards?
-    # redirect to whatever page
     # change redirect to game over page instead of index
     redirect "/rounds/#{@round.id}"
   else
@@ -23,11 +23,9 @@ get '/rounds/:round_id/guesses/new' do
 end
 
 post '/rounds/:round_id/guesses' do
-  # p params
   @round = Round.find(params[:round_id])
   @guess = @round.guesses.new(params[:guess])
   @guess.answer_checker(params[:user_answer])
-  # puts @guess.true_or_false
   if @guess.save
     # redirect to next card that hasn't been answered correctly.
     redirect "/rounds/#{@round.id}/guesses/new"
