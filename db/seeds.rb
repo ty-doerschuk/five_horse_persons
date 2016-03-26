@@ -19,7 +19,7 @@ card4 = Card.create!(question:"What is Duke Greene's signature move?",
                       answer: "The PUNisher",
                       deck_id: deck.id)
 
-user = User.create!(username: "jabroni", hashed_password: "smackdown")
+user = User.create!(username: "admin", password: "password")
 
 round = Round.create!(user_id: user.id, deck_id: deck.id)
 
