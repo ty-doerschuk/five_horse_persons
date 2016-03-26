@@ -3,14 +3,12 @@ body {
 /*  background-image: url("/images/the_rock.png");*/
 }
 
-
 header {
   text-align: center;
 }
 
 .login {
   width: 400px;
-
 }
 
 .login input[type=text] {
@@ -43,4 +41,12 @@ header {
 }
 footer img {
 
+}
+
+#correct-guess {
+  color: green;
+}
+
+#wrong-guess {
+  color: red;
 }
