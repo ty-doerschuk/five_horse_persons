@@ -1,0 +1,43 @@
+body {
+  margin: 0 20px;
+/*  background-image: url("/images/the_rock.png");*/
+}
+
+
+header {
+  text-align: center;
+}
+
+.login {
+  width: 400px;
+
+}
+
+.login input[type=text] {
+  width: 75%;
+  box-sizing: border-box;
+}
+
+.login input[type=password] {
+  width: 75%;
+  box-sizing: border-box;
+}
+
+.login input[type=submit] {
+  width: 75%;
+  box-sizing: border-box;
+}
+
+.login ul {
+  list-style: none;
+  padding: 0;
+}
+
+.login li {
+  padding: 5px;
+}
+
+
+footer img {
+
+}
