@@ -17,7 +17,6 @@ body {
 /*  background-image: url("/images/the_rock.png");*/
 }
 
-
 a {
   color: #fff;
 }
@@ -32,8 +31,6 @@ a:hover {
   padding: 10px;
   background-color: #000;
   opacity: 0.8;
-  text-align: center;
-  margin-bottom: 5px;
 }
 
 .display ul {
@@ -105,3 +102,5 @@ footer img {
 #wrong-guess {
   color: red;
 }
+
+
