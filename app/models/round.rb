@@ -35,5 +35,16 @@ class Round < ActiveRecord::Base
     total_round_score = initial_points - guess_penalty
   end
 
+  def calculate_time
+    time_sec = (self.updated_at - self.created_at).round(1)
+    if time_sec > 60
+      time_min = (time_sec / 60).round
+      time_sec = (time_sec - (time_min * 60)).round
+    else
+      time_min = 0
+    end
+    return "#{time_min} minutes and #{time_sec} seconds!"
+  end
+
 end
 
