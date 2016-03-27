@@ -7,23 +7,9 @@
 </header>
 
 <sidebar id="left-sidebar">
-  <section class="display">
-    <h2><%= @user.username.titleize %>'s Statistics</h2>
-
-      <% @user.rounds.each do |round| %>
-      <ul>
-        <li>Deck Name: <%= round.deck.name %></li>
-        <li>Date of Completion: <%= round.created_at %></li>
-        <li>Correct on First Try: <%= round.correct_on_first %></li>
-        <li>Cards in Deck: <%= round.cards.count %></li>
-        <li>Total Guesses: <%= round.guesses.count %></li>
-      </ul><br>
-      <% end %>
-
-  </section>
-
   <% if current_user.id == @user.id %>
   <section class="login">
+    <h2>Play a New Round</h2>
     <form method="get" action='/rounds/new'>
       <ul>
         <li><label for="deck">Select Your Deck:</label></li>
@@ -33,8 +19,9 @@
         <% end %>
       </select></li>
 
-      <input type="hidden" name="user_id" value="<%= current_user.id  %>">
-      <li><input type="submit" value="LET'S GET READY TO RUMBLE"></li>
+        <input type="hidden" name="user_id" value="<%= current_user.id  %>">
+        <li><input type="submit" value="LET'S GET READY TO RUMBLE"></li>
+      </ul>
     </form>
   </section>
 
@@ -53,6 +40,36 @@
 
 <sidebar id="right-sidebar">
   <section class="login">
+    <h2><%= @user.username.titleize %>'s Statistics</h2>
+    <form method="get" action="/users/<%= @user.id %>">
+      <ul>
+        <li><label for="deck_stats">Select Deck:</label></li>
+        <li><select id="deck_stats" name="deck_stats">
+        <% @list_of_decks.each do |deck| %>
+          <option value="<%= deck.id %>"><%= deck.name %></option>
+        <% end %>
+        </select></li>
+
+        <input type="hidden" name="user_id" value="<%= current_user.id  %>">
+        <li><input type="submit" value="View Stats"></li>
+      </ul>
+    </form>
+  </section>
+
+  <% if @stats %>
+  <section class="display">
+      <% @user.rounds.where(deck_id: @stats).each do |round| %>
+      <ul>
+        <li>Deck Name: <%= round.deck.name %></li>
+        <li>Date of Completion: <%= round.created_at %></li>
+        <li>Correct on First Try: <%= round.correct_on_first %></li>
+        <li>Cards in Deck: <%= round.cards.count %></li>
+        <li>Total Guesses: <%= round.guesses.count %></li>
+      </ul><br>
+      <% end %>
+  </section>
+  <% end %>
+  <section class="login">
     <form method="get" action="/users">
       <ul>
         <li><label for="deck">Check Out the Competition</label></li>
@@ -65,7 +82,4 @@
     </form>
   </section>
 
-  <section class="display">
-    <p>ME TOO</p>
-  </section>
 </sidebar>

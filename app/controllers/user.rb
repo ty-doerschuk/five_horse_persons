@@ -43,6 +43,9 @@ get '/users/:id' do
     redirect "/users/#{current_user.id}" unless @user
     @list_of_decks = Deck.all
     @list_of_users = User.all
+    if params[:deck_stats]
+      @stats = Deck.find(params[:deck_stats])
+    end
     erb :'users/user_page'
   end
 end
