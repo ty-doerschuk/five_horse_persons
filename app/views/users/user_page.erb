@@ -6,20 +6,19 @@
 <% end %>
 </header>
 
-<<<<<<< HEAD
-<section>
-  <h2>Your Statistics</h2>
-  <ul style ="list-style-type:none">
-    <li>Points: <%= @user.rounds.first.calc_points %></li>
-=======
 <section class="display">
   <h2><%= @user.username.titleize %>'s Statistics</h2>
-  <ul>
-    <li>Points: </li>
-    <li>Losses:</li>
->>>>>>> master
-    <li>Belts Held:</li>
-  </ul>
+
+    <% @user.rounds.each do |round| %>
+    <ul>
+      <li>Deck Name: <%= round.deck.name %></li>
+      <li>Date of Completion: <%= round.created_at %></li>
+      <li>Correct on First Try: <%= round.correct_on_first %></li>
+      <li>Cards in Deck: <%= round.cards.count %></li>
+      <li>Total Guesses: <%= round.guesses.count %></li>
+    </ul><br>
+    <% end %>
+
 </section>
 
 <% if current_user.id == @user.id %>
