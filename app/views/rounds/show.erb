@@ -1,17 +1,20 @@
 <header>
 <h1>THE ROUND IS OVER!</h1>
 </header>
+<sidebar id="left-sidebar">
 
-<section class="display">
-  <h2>Here are your stats:</h2>
-  <p>It took you:</p>
-  <p span class='result'><%= @round.guesses.count %> guesses</p>
-  <p>to get through</p>
-  <p span class='result'><%= @round.cards.count %> cards!</p>
-  <p>Time taken:</p>
-  <p span class='result'><%= @round.calculate_time %></p>
-</section>
+  <section class="display">
+    <h2>Here are your stats:</h2>
+    <p>It took you:</p>
+    <p span class='result'><%= @round.guesses.count %> guesses</p>
+    <p>to get through</p>
+    <p span class='result'><%= @round.cards.count %> cards!</p>
+    <p>Time taken:</p>
+    <p span class='result'><%= @round.calculate_time %></p>
+  </section>
 
-<section class="display">
-  <p><a href="/users/user_page">Go Back To Your User Page</a></p>
-</section>
+  <section class="display">
+    <p><a href="/users/user_page">Go Back To Your User Page</a></p>
+  </section>
+</sidebar>
+
