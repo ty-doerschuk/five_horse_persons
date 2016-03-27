@@ -1,27 +1,28 @@
 <header>
   <h1>ENTER THE RING</h1>
 </header>
+<sidebar id="left-sidebar">
+  <section class="login">
+    <form method='post' action='/users'>
+      <ul>
+        <li><label for="user">Desired Username:</label></li>
+        <li><input id="user" name="username" type='text'></li>
+        <li><label for="pass">Desired Password</label></li>
+        <li><input id="pass" name="password" type='password'></li>
+        <li><input type="submit" value="Register"></li>
+      </ul>
+    </form>
+  </section>
 
-<section class="login">
-  <form method='post' action='/users'>
-    <ul>
-      <li><label for="user">Desired Username:</label></li>
-      <li><input id="user" name="username" type='text'></li>
-      <li><label for="pass">Desired Password</label></li>
-      <li><input id="pass" name="password" type='password'></li>
-      <li><input type="submit" value="Register"></li>
-    </ul>
-  </form>
-</section>
-
-<section>
-  <% if @errors %>
-    <% @errors.each do |error| %>
-    <p span class="error"><%= "#{error}" %></span></p>
+  <section>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+      <p span class="error"><%= "#{error}" %></span></p>
+      <% end %>
     <% end %>
-  <% end %>
-</section>
+  </section>
 
-<section class="display">
-  <p><a href='/'>I'm too afraid to enter the ring</a>.</p>
-</section>
+  <section class="display">
+    <p><a href='/'>I'm too afraid to enter the ring</a>.</p>
+  </section>
+</sidebar>
