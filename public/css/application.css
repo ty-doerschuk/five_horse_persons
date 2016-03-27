@@ -74,6 +74,11 @@ a:hover {
   margin-bottom: 5px;
 }
 
+.login h2 {
+  text-align: center;
+  color: #fff;
+}
+
 .login label {
   color: #fff;
   width: 400px;
