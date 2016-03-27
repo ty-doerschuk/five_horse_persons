@@ -1,8 +1,8 @@
 <header>
 <% if current_user.id == @user.id %>
-  <h1> FINALLY, <%= @user.username.titleize %> HAS COME BACK TO...</h1>
+  <h1> FINALLY, <%= @user.username.upcase %> HAS COME BACK TO...</h1>
 <% else %>
-  <h1>YOU ARE VIEWING <%= @user.username.titleize %>'S PROFILE</h1>
+  <h1>YOU ARE VIEWING <%= @user.username.upcase %>'S PROFILE</h1>
 <% end %>
 </header>
 
@@ -52,8 +52,17 @@
 </sidebar>
 
 <sidebar id="right-sidebar">
-  <section class="display">
-    <p>I'm over on the right side of the screen!</p>
+  <section class="login">
+    <form method="get" action="/users">
+      <ul>
+        <li><label for="deck">Check Out the Competition</label></li>
+        <li><select id="user" name="id">
+        <% @list_of_users.each do |user| %>
+          <option value="<%= user.id %>"><%= user.username %></option>
+        <% end %>
+      </select></li>
+      <li><input type="submit" value="DO THEY HAVE WHAT IT TAKES?"></li>
+    </form>
   </section>
 
   <section class="display">
