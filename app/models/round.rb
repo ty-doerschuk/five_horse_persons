@@ -22,6 +22,12 @@ class Round < ActiveRecord::Base
     cards_to_play.sample
   end
 
+  def correct_on_first
+   all_cards_played = self.guesses.map{ |guess| guess.card }
+   frequency_hash = Hash.new(0)
+   all_cards_played.each{ |card| frequency_hash[card] += 1 }
+   frequency_hash.reject{ |card, count| count > 1 }.keys.count
+  end
 
   def calc_points_for_round
     initial_points = (self.guesses.where(true_or_false: true)).count * 2
