@@ -22,14 +22,6 @@ class Round < ActiveRecord::Base
     cards_to_play.sample
   end
 
-  def correct_guesses
-    self.guesses.where(true_or_false: true)
-  end
-
-  def wrong_guesses
-    self.guesses.where(true_or_false: false)
-  end
-
   def correct_on_first
    all_cards_played = self.guesses.map{ |guess| guess.card }
    frequency_hash = Hash.new(0)
