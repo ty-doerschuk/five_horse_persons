@@ -1,42 +1,43 @@
 <header>
   <h1>CAN YOU SMELL WHAT THESE FLASHCARDS ARE COOKING?</h1>
 </header>
-
-<% unless logged_in? %>
-<section class="login">
-  <form method='post' action='/users/login'>
-    <ul>
-      <li><label for="user">Username:</label></li>
-      <li><input id="user" name="username" type='text'></li>
-      <li><label for="pass">Password:</label></li>
-      <li><input id="pass" name="password" type='password'></li>
-      <li><input type="submit" value="Get in the ring, ya jabroni"></li>
-    </ul>
-  </form>
-<% end %>
-
-  <% if @errors %>
-    <% @errors.each do |error| %>
-      <p span class="error"><%= "#{error}" %></span></p>
-    <% end %>
+<sidebar id="left-sidebar">
+  <% unless logged_in? %>
+  <section class="login">
+    <form method='post' action='/users/login'>
+      <ul>
+        <li><label for="user">Username:</label></li>
+        <li><input id="user" name="username" type='text'></li>
+        <li><label for="pass">Password:</label></li>
+        <li><input id="pass" name="password" type='password'></li>
+        <li><input type="submit" value="Get in the ring, ya jabroni"></li>
+      </ul>
+    </form>
   <% end %>
 
-</section>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <p span class="error"><%= "#{error}" %></span></p>
+      <% end %>
+    <% end %>
 
-<% if logged_in? %>
+  </section>
 
-<section class="display">
-  <h2>Welcome back, <%= current_user.username.titleize %> </h2>
-  <ul>
-    <li>You can <a href="/users/<%= current_user.id %>">jump into the ring</a> or</li>
-    <li>you can <a href="/logout">log out like a chump</a>.</li>
-  </ul>
-</section>
+  <% if logged_in? %>
 
-<% end %>
+  <section class="display">
+    <h2>Welcome back, <%= current_user.username.titleize %> </h2>
+    <ul>
+      <li>You can <a href="/users/<%= current_user.id %>">jump into the ring</a> or</li>
+      <li>you can <a href="/logout">log out like a chump</a>.</li>
+    </ul>
+  </section>
 
-<% unless logged_in? %>
-<section class="display">
-  <p>New? Register <a href='/users/new'>by clicking here</a>.</p>
-</section>
-<% end %>
+  <% end %>
+
+  <% unless logged_in? %>
+  <section class="display">
+    <p>New? Register <a href='/users/new'>by clicking here</a>.</p>
+  </section>
+  <% end %>
+</sidebar>
