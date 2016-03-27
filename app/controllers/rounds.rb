@@ -14,7 +14,7 @@ get '/rounds/:round_id/guesses/new' do
   @round = Round.find(params[:round_id])
   @last_guess = @round.guesses.last
   if @round.no_more_cards?
-    # change redirect to game over page instead of index
+    @round.touch
     redirect "/rounds/#{@round.id}"
   else
     @card = @round.get_next_card
