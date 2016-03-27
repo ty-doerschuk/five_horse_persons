@@ -1,8 +1,16 @@
+body {
+  font-family: Roboto;
+  margin: 0 20px;
+  min-width: 960px;
+/*  background-image: url("/images/the_rock.png");*/
+}
+
 header {
   text-align: center;
   background-color: #000;
   opacity: 0.8;
   font-family: Archivo Black;
+  min-width: 960px;
 }
 
 header h1 {
@@ -11,10 +19,28 @@ header h1 {
   font-size: 36px;
 }
 
-body {
-  font-family: Roboto;
-  margin: 0 20px;
-/*  background-image: url("/images/the_rock.png");*/
+
+
+section {
+  display: inline-block;
+  float: left;
+}
+
+#left-sidebar {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 310px;
+  height: 100%;
+}
+
+#right-sidebar {
+  float: right;
+  margin: 0 20px 0 0;
+  display: inline-block;
+  width: 300px;
+  height: 100%;
 }
 
 a {

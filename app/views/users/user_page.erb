@@ -6,46 +6,57 @@
 <% end %>
 </header>
 
-<section class="display">
-  <h2><%= @user.username.titleize %>'s Statistics</h2>
+<sidebar id="left-sidebar">
+  <section class="display">
+    <h2><%= @user.username.titleize %>'s Statistics</h2>
 
-    <% @user.rounds.each do |round| %>
-    <ul>
-      <li>Deck Name: <%= round.deck.name %></li>
-      <li>Date of Completion: <%= round.created_at %></li>
-      <li>Correct on First Try: <%= round.correct_on_first %></li>
-      <li>Cards in Deck: <%= round.cards.count %></li>
-      <li>Total Guesses: <%= round.guesses.count %></li>
-    </ul><br>
-    <% end %>
-
-</section>
-
-<% if current_user.id == @user.id %>
-<section class="login">
-  <form method="get" action='/rounds/new'>
-    <ul>
-      <li><label for="deck">Select Your Deck:</label></li>
-      <li><select id="deck" name="deck_id">
-      <% @list_of_decks.each do |deck| %>
-        <option value="<%= deck.id %>"><%= deck.name %></option>
+      <% @user.rounds.each do |round| %>
+      <ul>
+        <li>Deck Name: <%= round.deck.name %></li>
+        <li>Date of Completion: <%= round.created_at %></li>
+        <li>Correct on First Try: <%= round.correct_on_first %></li>
+        <li>Cards in Deck: <%= round.cards.count %></li>
+        <li>Total Guesses: <%= round.guesses.count %></li>
+      </ul><br>
       <% end %>
-    </select></li>
 
-    <input type="hidden" name="user_id" value="<%= current_user.id  %>">
-    <li><input type="submit" value="LET'S GET READY TO RUMBLE"></li>
-  </form>
-</section>
+  </section>
 
-<% else %>
+  <% if current_user.id == @user.id %>
+  <section class="login">
+    <form method="get" action='/rounds/new'>
+      <ul>
+        <li><label for="deck">Select Your Deck:</label></li>
+        <li><select id="deck" name="deck_id">
+        <% @list_of_decks.each do |deck| %>
+          <option value="<%= deck.id %>"><%= deck.name %></option>
+        <% end %>
+      </select></li>
 
-<section class="display">
-  <p><a href="/users/<%= current_user.id %>">Return</a> to your profile.<p>
-</section>
+      <input type="hidden" name="user_id" value="<%= current_user.id  %>">
+      <li><input type="submit" value="LET'S GET READY TO RUMBLE"></li>
+    </form>
+  </section>
 
-<% end %>
+  <% else %>
 
-<section class="display">
-  <p><a href='/'>Go Back</a> to the Home Page</p>
-</section>
+  <section class="display">
+    <p><a href="/users/<%= current_user.id %>">Return</a> to your profile.<p>
+  </section>
 
+  <% end %>
+
+  <section class="display">
+    <p><a href='/'>Go Back</a> to the Home Page</p>
+  </section>
+</sidebar>
+
+<sidebar id="right-sidebar">
+  <section class="display">
+    <p>I'm over on the right side of the screen!</p>
+  </section>
+
+  <section class="display">
+    <p>ME TOO</p>
+  </section>
+</sidebar>
