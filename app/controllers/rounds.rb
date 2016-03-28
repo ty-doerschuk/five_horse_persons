@@ -36,6 +36,7 @@ end
 
 get '/rounds/:id' do
   @round = Round.find(params[:id])
+  @ric_flair = true
   erb :'rounds/show'
 end
 
